@@ -14,7 +14,7 @@ Yahboom의 Jetson Nano 4GB SUB
 이사항으로는 SD 카드 포트가 마련되어 있지 않아, USB 포트나 eMMC 를 사용해서 OS를 다운받아야 함.
 
 ## 목차
-### 1. 설치
+### 1. [설치](https://github.com/nsj5068/MCUBoard/blob/main/Jetson%20Nano/1.%EC%84%A4%EC%B9%98.md)
 ### 2. 환경설정
 ### 3. 기본예제
 ### 4. 객체탐지
