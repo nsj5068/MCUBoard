@@ -20,15 +20,15 @@
     7. sudo apt-get install libudev-dev
     8. make
     ```
-    cd librealsense  # Move into the cloned directory
-    mkdir build && cd build  # Create a build directory and move into it
-    cmake ../ -DBUILD_PYTHON_BINDINGS=bool:true  # Run CMake to configure the project
-    make && sudo make install  # Build and install the project
+    cd librealsense  
+    mkdir build && cd build  
+    cmake ../ -DBUILD_PYTHON_BINDINGS=bool:true  
+    make && sudo make install  
     ```
-
-
-
-  
+    
+3. Error
+    1. gcc error
+        1.   
  
 
 ### Python Example
