@@ -7,10 +7,13 @@
 - GNU/Linux 4.9.140-tegra aarch64
 
 ### Python Binding
-1. 설치
-    - pip install pyrealsense2
-3. 
-4.  
+
+#### 1. 설치 1
+    pip install pyrealsense2
+      
+#### 2. 설치 2
+    - 
+ 
 
 ### Python Example
 1. 
