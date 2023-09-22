@@ -32,7 +32,6 @@
            - 임시 방편 해결법 : 터미널 창에서 다음 코드를 그대로 치고 엔터를 누른다.
            - `export CC=/usr/bin/gcc`
            - aarch64-linux-gnu-gcc이 컴파일러를 일반 gcc 컴파일러로 바꾼다는 의미...
-             
 
     2. Memory 부족 문제
         1. Swapfile
