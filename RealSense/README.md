@@ -5,7 +5,7 @@
 - Intel RealSense D435i
 - Ubuntu 18.04.06 LTS
 - GNU/Linux 4.9.140-tegra aarch64
-<hr>
+----------------------------------------------------------
 - 2023/09/22 에 작성되었음.
 
 ## Python Binding
