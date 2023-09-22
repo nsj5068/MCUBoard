@@ -6,7 +6,9 @@
 - Ubuntu 18.04.06 LTS
 - GNU/Linux 4.9.140-tegra aarch64
 
-### Python Binding
+
+
+## Python Binding
 
 1. 설치 1
     1. pip install pyrealsense2
@@ -50,9 +52,8 @@
                5. `sudo swapon /swapfile` : 스왑 파일 등록
                6. `echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab` : 부팅 시 마다 자동 적용
 
- 
 
-### Python Example
+## Python Example
 1. 
 2. 
 3. 
