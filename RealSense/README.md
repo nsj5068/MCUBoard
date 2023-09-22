@@ -82,4 +82,9 @@
     - 결과 :
 3. Depth Image를 저장한 후, color map으로 변환 및 출력
     - [depth_color](code/depth_colormap.py)
-    - 결과 :  
+    - 결과 :
+  
+## pyrealsense2 Lib 탐구
+
+### Parameter
+1. 
