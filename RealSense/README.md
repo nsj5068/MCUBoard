@@ -6,7 +6,7 @@
 - Ubuntu 18.04.06 LTS
 - GNU/Linux 4.9.140-tegra aarch64
 
-
+- 2023/09/22 에 작성되었음.
 
 ## Python Binding
 
@@ -32,7 +32,20 @@
                 - 자잘한 에러들을 다 해결한 후에 build 이전 파일로 돌아가서 (`/librealsense`) 다음 코드를 실행.
                 - `sudo rm -rf /build` : build 파일 삭제
                 - 다시 위 과정 중 `mkdir build && cd build` 코드 부터 다시 실행.
-                - ~~최악의 경우 설치하는 데만 3~4시간 정도 걸림~~    
+                - ~~최악의 경우 설치하는 데만 3~4시간 정도 걸림~~
+    12. `export PYTHONPATH=$PYTHONPATH:/usr/local/lib` : 파이썬 Path 설정
+    13. .so 파일 파이썬 라이브러리로 복사
+        1. 현재 파일 위치는 `/librealsense/build`
+        2. `cd wrappers/`
+        3. `cd python/`
+        4. "pyrealsense2.cpython-XXm-aarch64-linux-gnu.so" 이렇게 이름 붙혀진 파일을 찾고,
+        5. `python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"` : 파이썬 기본 라이브러리 위치 확인
+        6. `sudo cp /librealsense/build/wrappers/python/pyrealsense2.cpython-36m-aarch64-linux-gnu.so (5번 위치 넣기)` : 파이썬 기본 라이브러리에 pyrealsense2 정보 넣기
+        7. 확인
+            - `python3` : python3 스크립트 실행
+            - `import pyrealsense2` : pyrealsense2 라이브러리 설치 확인
+                - 에러 없이 다음 줄 계속 => 성공
+                - 에러 : `No module 'pyrealsense2'~~ ` 이런식으로 뜰 경우, 잘못된 .so 파일을 설치하진 않았는 지, 또는 그 위의 과정 중에서 몇개의 에러를 무시했는 지 잘 따져봐야함.  
 
 3. Error
     1. gcc error
@@ -54,7 +67,79 @@
 
 
 ## Python Example
-1. 
-2. 
-3. 
-4. 
+
+1. 사진 찍기 및 저장
+```
+import pyrealsense2 as rs
+import numpy as np
+import cv2
+from datetime import datetime
+
+# Configure depth and color streams
+pipeline = rs.pipeline()
+config = rs.config()
+config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
+config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
+
+# Start streaming
+pipeline.start(config)
+
+try:
+    # Wait for a coherent pair of frames: depth and color
+    frames = pipeline.wait_for_frames()
+    depth_frame = frames.get_depth_frame()
+    color_frame = frames.get_color_frame()
+
+    if not depth_frame or not color_frame:
+        raise RuntimeError("Could not acquire depth or color frames.")
+
+    # Convert images to numpy arrays
+    depth_image = np.asanyarray(depth_frame.get_data())
+    color_image = np.asanyarray(color_frame.get_data())
+
+finally:
+    # Stop streaming
+    pipeline.stop()
+
+now_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+cv2.imwrite(f'/home/nano/image_file/{now_str}_depth.png', depth_image)
+cv2.imwrite(f'/home/nano/image_file/{now_str}_color.jpg', color_image)
+
+```
+
+2. 영상을 아스키 코드로 표현하여 재생
+```
+# First import the library
+import pyrealsense2 as rs
+
+# Create a context object. This object owns the handles to all connected realsense devices
+pipeline = rs.pipeline()
+pipeline.start()
+
+try:
+    while True:
+        # Create a pipeline object. This object configures the streaming camera and owns it's handle
+        frames = pipeline.wait_for_frames()
+        depth = frames.get_depth_frame()
+        if not depth: continue
+
+        # Print a simple text-based representation of the image, by breaking it into 10x20 pixel regions and approximating t$
+        coverage = [0]*64
+        for y in range(480):
+            for x in range(640):
+                dist = depth.get_distance(x, y)
+                if 0 < dist and dist < 1:
+                    coverage[x//10] += 1
+
+            if y%20 is 19:
+                line = ""
+                for c in coverage:
+                    line += " .:nhBXWW"[c//25]
+                coverage = [0]*64
+                print(line)
+
+finally:
+    pipeline.stop()
+
+``` 
