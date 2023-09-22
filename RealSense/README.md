@@ -74,12 +74,12 @@
 ## Python Example
 
 1. 사진 찍기 및 저장
-    - [CapTest Script](captest.py)
+    - [CapTest Script](code/captest.py)
     - 결과 :
 
 2. 영상을 아스키 코드로 표현하여 재생
-    - [AC Script](testAC.py)
+    - [AC Script](code/testAC.py)
     - 결과 :
 3. Depth Image를 저장한 후, color map으로 변환 및 출력
-    - [depth_color](depth_colormap.py)
+    - [depth_color](code/depth_colormap.py)
     - 결과 :  
