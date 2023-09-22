@@ -11,13 +11,13 @@
 1. 설치 1
     1. pip install pyrealsense2
 2. 설치 2
-    1. sudo apt-get update
-    2. sudo apt-get upgrade
-    3. sudo apt-get install libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
-    4. sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
-    5. sudo apt-get install cmake python3 python3-dev python3-pip
-    6. git clone https://github.com/IntelRealSense/librealsense.git
-    7. sudo apt-get install libudev-dev
+    1. `sudo apt-get update`
+    2. `sudo apt-get upgrade`
+    3. `sudo apt-get install libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev`
+    4. `sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev`
+    5. `sudo apt-get install cmake python3 python3-dev python3-pip`
+    6. `git clone https://github.com/IntelRealSense/librealsense.git`
+    7. `sudo apt-get install libudev-dev`
     8. make
     ```
     cd librealsense  
