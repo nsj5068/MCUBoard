@@ -74,7 +74,8 @@
 ## Python Example
 
 1. 사진 찍기 및 저장
-    - [captest.py](captest.py)
+    - [CapTest Script](captest.py)
+
     - 결과 :
 
 2. 영상을 아스키 코드로 표현하여 재생
