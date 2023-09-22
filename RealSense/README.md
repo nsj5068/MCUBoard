@@ -1,7 +1,7 @@
 # Intel RealSense
 
 ## Configuraion 
-- Jetson nano B01
+- Jetson nano B01 4GB RAM
 - Intel RealSense D435i
 - Ubuntu 18.04.06 LTS
 - GNU/Linux 4.9.140-tegra aarch64
@@ -18,14 +18,20 @@
     5. `sudo apt-get install cmake python3 python3-dev python3-pip`
     6. `git clone https://github.com/IntelRealSense/librealsense.git`
     7. `sudo apt-get install libudev-dev`
-    8. make
-    ```
-    cd librealsense  
-    mkdir build && cd build  
-    cmake ../ -DBUILD_PYTHON_BINDINGS=bool:true  
-    make && sudo make install  
-    ```
-    
+    8. `cd librealsense`
+    9. `mkdir build && cd build`
+    10. `cmake ../ -DBUILD_PYTHON_BINDINGS=bool:true` : 파이썬 바인딩을 해야 관련된 .so 파일이 나타남. 
+    11. `make && sudo make install` : 본 보드 기준, 걸리는 시간 = 약 2시간
+        - 혹시 빌드나, make 도중 오류가 걸렸을 경우 취해야 할 행동
+            1. `cmake ../ -DBUILD_PYTHON_BINDINGS=bool:true` or `make && sudo make install` 를 다시 시도했을 때, 별 문제 없이 되는 경우
+                - 메모리 부족으로 인한 문제가 대다수임.
+            2. 위 1번 코드를 다시 실행 했을 때 안되는 경우
+                - cmake 설정에 문제가 있다거나, gcc 문제일 가능성이 큼.
+                - 자잘한 에러들을 다 해결한 후에 build 이전 파일로 돌아가서 (`/librealsense`) 다음 코드를 실행.
+                - `sudo rm -rf /build` : build 파일 삭제
+                - 다시 위 과정 중 `mkdir build && cd build` 코드 부터 다시 실행.
+                - ~~최악의 경우 설치하는 데만 3~4시간 정도 걸림~~    
+
 3. Error
     1. gcc error
         1. aarch64-linux-gnu-gcc error
