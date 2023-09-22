@@ -40,8 +40,13 @@
         3. `cd python/`
         4. "pyrealsense2.cpython-XXm-aarch64-linux-gnu.so" 이렇게 이름 붙혀진 파일을 찾고,
         5. `python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"` : 파이썬 기본 라이브러리 위치 확인
-        6. `sudo cp /librealsense/build/wrappers/python/pyrealsense2.cpython-36m-aarch64-linux-gnu.so (5번 위치 넣기)` : 파이썬 기본 라이브러리에 pyrealsense2 정보 넣기
-        7. 확인
+        6. `sudo cp /librealsense/build/wrappers/python/pyrealsense2.cpython-36m-aarch64-linux-gnu.so /usr/lib/python3/dist-packages`
+            - 파이썬 기본 라이브러리에 pyrealsense2 정보 넣기
+            - `sudo` : 관리자 권한
+            - `cp` : 복사
+            - `/librealsense/build/wrappers/python/pyrealsense2.cpython-36m-aarch64-linux-gnu.so` : 복사하려는 파일
+            - `/usr/lib/python3/dist-packages` : 위 5번에서 나온 결과 코드, 대개 dist-pakages나 site-pakages 이다.
+        8. 확인
             - `python3` : python3 스크립트 실행
             - `import pyrealsense2` : pyrealsense2 라이브러리 설치 확인
                 - 에러 없이 다음 줄 계속 => 성공
