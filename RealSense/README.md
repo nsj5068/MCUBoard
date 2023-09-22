@@ -74,44 +74,7 @@
 ## Python Example
 
 1. 사진 찍기 및 저장
-```
-import pyrealsense2 as rs
-import numpy as np
-import cv2
-from datetime import datetime
-
-# Configure depth and color streams
-pipeline = rs.pipeline()
-config = rs.config()
-config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
-config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
-
-# Start streaming
-pipeline.start(config)
-
-try:
-    # Wait for a coherent pair of frames: depth and color
-    frames = pipeline.wait_for_frames()
-    depth_frame = frames.get_depth_frame()
-    color_frame = frames.get_color_frame()
-
-    if not depth_frame or not color_frame:
-        raise RuntimeError("Could not acquire depth or color frames.")
-
-    # Convert images to numpy arrays
-    depth_image = np.asanyarray(depth_frame.get_data())
-    color_image = np.asanyarray(color_frame.get_data())
-
-finally:
-    # Stop streaming
-    pipeline.stop()
-
-now_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-cv2.imwrite(f'/home/nano/image_file/{now_str}_depth.png', depth_image)
-cv2.imwrite(f'/home/nano/image_file/{now_str}_color.jpg', color_image)
-
-```
+    - 결과 : 
 
 2. 영상을 아스키 코드로 표현하여 재생
 ```
