@@ -89,4 +89,8 @@
 ## pyrealsense2 Lib 탐구
 
 ### Parameter
-1. 
+1. 노출값
+2. Color Camera
+    1. 배경 제거 
+3. Stereo Camera - Depth Image
+    1. Depth Distance
