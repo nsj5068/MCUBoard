@@ -94,3 +94,5 @@
     1. 배경 제거 
 3. Stereo Camera - Depth Image
     1. Depth Distance
+    2. 근거리 세팅
+        1.   
