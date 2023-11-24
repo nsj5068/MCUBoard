@@ -8,3 +8,12 @@
   - <code>systeminfo</code>
   - ![image](https://github.com/nsj5068/MCUBoard/assets/64456822/88a45656-e115-4204-be49-c235424ece98)
     - 모두 Yes나 예로 떠야함. 하나라도 No나 아니오 라면 바꿀 수 있음.
+
+## 프로그램 및 기능
+  - 설정에서 앱 설정 찾기
+  - 프로그램 및 기능 찾기
+  - Windows 기능 켜기/끄기
+  - ![image](https://github.com/nsj5068/MCUBoard/assets/64456822/af410059-18c5-4075-ad1a-f879df487350)
+  - Hyper-V 기능 체크
+  - 재부팅
+
