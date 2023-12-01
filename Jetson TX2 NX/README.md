@@ -16,6 +16,5 @@
   - Terminal 열기
     - sudo apt-get update
     - sudo apt-get upgrade
-      
-  - 
+    - <code>sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb</code>
 
