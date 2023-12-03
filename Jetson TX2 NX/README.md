@@ -1,6 +1,6 @@
 # Jetson TX2 NX
 
-![image](https://github.com/nsj5068/MCUBoard/assets/64456822/e8a67b2b-de41-407b-9845-1e29f3365767)
+ ![image](https://github.com/nsj5068/MCUBoard/assets/64456822/e8a67b2b-de41-407b-9845-1e29f3365767)
 
 전원 장치 : 12V
 
