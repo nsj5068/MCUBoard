@@ -1,5 +1,9 @@
 # Jetson TX2 NX
 
+![image](https://github.com/nsj5068/MCUBoard/assets/64456822/e8a67b2b-de41-407b-9845-1e29f3365767)
+
+전원 장치 : 12V
+
 ## 개발 환경설정
 ### Hyper-V를 이용한 가상환경 설정(Window 10 이상)
   - Hyper-V 빨리 만들기
@@ -17,4 +21,6 @@
     - sudo apt-get update
     - sudo apt-get upgrade
     - <code>sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb</code>
+
+### 
 
